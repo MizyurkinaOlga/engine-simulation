@@ -1,10 +1,11 @@
 #pragma once
 
 #include <vector>
-namespace engine 
+namespace engines 
 {
 	class InternalCombustionEngine 
 	{
+
 		double I = 10;
 		double overheatTemperature = 100.0;
 		double Hm = 0.01;
@@ -13,10 +14,17 @@ namespace engine
 		std::vector<int> vectorM = { 20,75,100,105,75,0 };
 		std::vector<int> vectorV = { 0,75,150,200,250,300 };
 
-	public:
 		double M;
 		double V;
+
+	public:
+
 		double Vh();
-		double Vc(int ambientTemperature, int engineTemperature);
+		double Vc(double ambientTemp, double engineTemp);
+		InternalCombustionEngine ()
+		{
+			M = vectorM[0];
+			V = vectorV[0];
+		}
 	};
 }

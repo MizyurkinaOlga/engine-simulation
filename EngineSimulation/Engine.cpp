@@ -1,14 +1,14 @@
 #include "Engine.h"
 
-namespace engine
+namespace engines
 {
 	double InternalCombustionEngine::Vh() 
 	{
 		return M * Hm + V * V * Hv;
 	}
 
-	double InternalCombustionEngine::Vc(int ambientTemperature, int engineTemperature)
+	double InternalCombustionEngine::Vc(double ambientTemp, double engineTemp)
 	{
-		return C * (ambientTemperature - engineTemperature);
+		return C * (ambientTemp - engineTemp);
 	}
 }

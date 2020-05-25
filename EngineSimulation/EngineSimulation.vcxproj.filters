@@ -21,9 +21,15 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="TestStand.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="TestStand.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
