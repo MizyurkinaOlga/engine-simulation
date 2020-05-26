@@ -14,7 +14,6 @@ namespace engines
 
 	void InternalCombustionEngine::UpdateM()
 	{
-		//скорость V заведомо не меньше чем начальная V[0]
 		int sizeV = vectorV.size();
 		for (int i = 0; i < sizeV - 1; i++)
 		{
@@ -23,13 +22,13 @@ namespace engines
 				M = vectorM[i];
 				return;
 			}
-			if (V > vectorV[i] && V < vectorV[i + 1])//исключили деление на ноль
+			if (V > vectorV[i] && V < vectorV[i + 1])
 			{
 				double deltaV = vectorV[i + 1] - vectorV[i];
 				double deltaM = vectorM[i + 1] - vectorM[i];
 				double deltaX = V - vectorV[i];
 				double deltaY = (deltaM * deltaX) / deltaV;
-				M += deltaY;
+				M = vectorM[i] + deltaY;
 				return;
 			}
 		}

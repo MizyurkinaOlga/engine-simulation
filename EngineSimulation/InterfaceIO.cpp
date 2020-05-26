@@ -1,5 +1,6 @@
 #include <iostream>
 #include "InterfaceIO.h"
+#include "TestStand.h"
 
 namespace interfaceio
 {
@@ -13,6 +14,13 @@ namespace interfaceio
 
 	void WriteOverheatTime(int seconds)
 	{
-		std::cout << "Time until engine overheats: " << seconds << " seconds." << std::endl;
+		if (seconds == teststand::MAX_TIME)
+		{
+			std::cout << "At a given ambient temperature and error, the engine does not overheat." << std::endl;
+		}
+		else
+		{
+			std::cout << "Time until engine overheats: " << seconds << " seconds." << std::endl;
+		}
 	}
 }

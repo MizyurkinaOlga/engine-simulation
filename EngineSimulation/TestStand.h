@@ -3,7 +3,8 @@
 
 namespace teststand
 {
-	const double DELTA_TEMP = 1e-3;
+	const double DELTA_TEMP = 1e-6;
+	const int MAX_TIME = 6e2;
 
 	template <class T>
 	class TestOverheatTime
@@ -30,16 +31,14 @@ namespace teststand
 
 		int StartTestEngine()
 		{
-			//задать начальные значения
 			int seconds = 0;
 			double a = thisEngine->M / thisEngine->I;
-			while (!OverheatingOccured())
+			while (!OverheatingOccured() && seconds < MAX_TIME)
 			{
 				seconds++;
 				thisEngine->V += a;
 				thisEngine->UpdateM();
-				engineTemperature = engineTemperature + thisEngine->Vh() +
-										thisEngine->Vc(ambientTemperature, engineTemperature);
+				engineTemperature += thisEngine->Vh() + thisEngine->Vc(ambientTemperature, engineTemperature);
 				a = thisEngine->M / thisEngine->I;
 			}
 			return seconds;
