@@ -12,6 +12,8 @@ namespace engines
 		double C = 0.1;
 		std::vector<int> vectorM = { 20,75,100,105,75,0 };
 		std::vector<int> vectorV = { 0,75,150,200,250,300 };
+		//::vector<int> vectorV = { 0,50,80,110 };
+		//std::vector<int> vectorM = { 10,10,10,10 };
 
 		double M;
 		double V;
