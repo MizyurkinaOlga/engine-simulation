@@ -3,11 +3,11 @@
 #include <vector>
 namespace engines 
 {
-	class InternalCombustionEngine 
+	struct InternalCombustionEngine 
 	{
 
 		double I = 10;
-		double overheatTemperature = 100.0;
+		double overheatTemperature = 110.0;
 		double Hm = 0.01;
 		double Hv = 0.0001;
 		double C = 0.1;
@@ -17,14 +17,13 @@ namespace engines
 		double M;
 		double V;
 
-	public:
-
 		double Vh();
-		double Vc(double ambientTemp, double engineTemp);
+		double Vc(double , double );
 		InternalCombustionEngine ()
 		{
 			M = vectorM[0];
 			V = vectorV[0];
 		}
+		void UpdateM();
 	};
 }

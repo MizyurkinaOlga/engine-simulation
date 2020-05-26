@@ -21,7 +21,7 @@
     <ClCompile Include="Engine.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="TestStand.cpp">
+    <ClCompile Include="InterfaceIO.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
@@ -30,6 +30,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="TestStand.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="InterfaceIO.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

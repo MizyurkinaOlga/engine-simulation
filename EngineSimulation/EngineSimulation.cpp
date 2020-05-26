@@ -1,11 +1,15 @@
-﻿// EngineSimulation.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
 
-#include <iostream>
+#include "TestStand.h"
+#include "InterfaceIO.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	double ambientTemp = interfaceio::GetAmbientTemperature();
+	engines::InternalCombustionEngine engine = engines::InternalCombustionEngine();
+	teststand::TestOverheatTime<engines::InternalCombustionEngine> currentTest(engine, ambientTemp);
+	int seconds = currentTest.StartTestEngine();
+	interfaceio::WriteOverheatTime(seconds);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

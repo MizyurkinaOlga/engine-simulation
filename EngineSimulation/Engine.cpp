@@ -11,4 +11,28 @@ namespace engines
 	{
 		return C * (ambientTemp - engineTemp);
 	}
+
+	void InternalCombustionEngine::UpdateM()
+	{
+		//скорость V заведомо не меньше чем начальная V[0]
+		int sizeV = vectorV.size();
+		for (int i = 0; i < sizeV - 1; i++)
+		{
+			if (V == vectorV[i])
+			{
+				M = vectorM[i];
+				return;
+			}
+			if (V > vectorV[i] && V < vectorV[i + 1])//исключили деление на ноль
+			{
+				double deltaV = vectorV[i + 1] - vectorV[i];
+				double deltaM = vectorM[i + 1] - vectorM[i];
+				double deltaX = V - vectorV[i];
+				double deltaY = (deltaM * deltaX) / deltaV;
+				M += deltaY;
+				return;
+			}
+		}
+		M = vectorM[vectorM.size() - 1];
+	}
 }
